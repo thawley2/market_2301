@@ -10,7 +10,7 @@
 ## Iteration 1 - Items & Vendors
 
 ```markdown
-There are **4** Possible Methods in Iteration 1:
+There are **4** features in Iteration 1:
 1. Item Creation - including all attr_readers
 2. Vendor Creation - including all attr_readers
 3. Vendor #check_stock
@@ -74,7 +74,7 @@ pry(main)> vendor.inventory
 ## Iteration 2 - Market and Vendors
 
 ```markdown
-There are **5** Possible Methods in Iteration 2:
+There are **5** features in Iteration 2:
 1. Market Creation - including all attr_readers
 3. Market #add_vendor
 4. Market #vendor_names
@@ -171,7 +171,7 @@ pry(main)> vendor3.potential_revenue
 ## Iteration 3 - Items sold at the Market
 
 ```markdown
-There are **3** Possible Method in Iteration 3:
+There are **3** features in Iteration 3:
 1. Market #total_inventory
 2. Market #overstocked_items
 3. Market #sorted_item_list
@@ -189,7 +189,7 @@ You `Market` will also be able to identify `overstocked_items`.  An item is over
 ## Iteration 4 - Selling Items
 
 ```markdown
-There are **2** Possible Methods in Iteration 4:
+There are **2** features in Iteration 4:
 1. Market #date
 2. Market #sell
 ```
