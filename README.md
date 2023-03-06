@@ -76,10 +76,10 @@ pry(main)> vendor.inventory
 ```markdown
 There are **5** features in Iteration 2:
 1. Market Creation - including all attr_readers
-3. Market #add_vendor
-4. Market #vendor_names
-5. Market #vendors_that_sell
-6. Vendor #potential_revenue
+2. Market #add_vendor
+3. Market #vendor_names
+4. Market #vendors_that_sell
+5. Vendor #potential_revenue
 ```
 
 A Vendor will be able to calculate their `potential_revenue` - the sum of all their items' price * quantity.
