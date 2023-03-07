@@ -59,4 +59,24 @@ class Market
       vendors_that_sell(item).length >= 2 && total_quantity(item) >= 50
     end
   end
+
+  def sell(item, amount)
+  #sell that returns true
+    #iterate over vendors and 'find' the first vendor that has the item && inventory[item] != 0
+      #check 'if' stock < amount, then 'amount -= stock' and set vendor inventory hash '[item] = 0'
+        #loop back through vendors
+      #'if' stock > amount, then subtract amount from vendors inventory hash '[item] -= amount'
+  #sell that returns false
+    #total_quantity(item) < amount
+
+    if total_quantity(item) < amount
+      return false
+    else
+      vendor = @vendors.find do |vendor|
+        vendor if vendor.inventory[item] != 0
+      end
+      vendor.inventory[item] -= amount
+      return true
+    end
+  end
 end
