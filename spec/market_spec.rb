@@ -119,13 +119,24 @@ RSpec.describe Market do
   end
 
   describe '#sell' do
-    it 'can sell inventory' do
+    before(:each) do
       @market.add_vendor(@vendor1)
       @market.add_vendor(@vendor2)
       @market.add_vendor(@vendor3)
-
+    end
+    it 'can sell inventory' do
       expect(@market.sell(@item1, 30)).to be true
       expect(@vendor1.check_stock(@item1)).to eq(5)
+    end
+
+    it 'returns false if sell amount is greater than total stock' do
+      expect(@market.sell(@item2, 100)).to be false
+    end
+
+    xit 'can decrease inventory of multiple vendors if sell amount is greater than 1 stores inventory' do
+      expect(@market.sell(@item1, 50)).to be true
+      expect(@vendor1.check_stock(@item1)).to eq(0)
+      #I feel like I was getting there. 
     end
   end
 end

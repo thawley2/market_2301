@@ -75,8 +75,13 @@ class Market
       vendor = @vendors.find do |vendor|
         vendor if vendor.inventory[item] != 0
       end
-      vendor.inventory[item] -= amount
-      return true
+      if vendor.inventory[item] < amount
+        amount -= vendor.inventory[item]
+        vendor.inventory[item] = 0
+        sell(item, amount)
+      end
+        vendor.inventory[item] -= amount
+        return true
     end
   end
 end
