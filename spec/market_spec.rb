@@ -106,6 +106,10 @@ RSpec.describe Market do
 
   describe '#overstocked_items' do
     it 'can return a list of item objects that are overstocked' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
+      
       expect(@market.overstocked_items).to eq([@item1])
     end
   end
