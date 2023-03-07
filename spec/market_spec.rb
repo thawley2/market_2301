@@ -76,4 +76,21 @@ RSpec.describe Market do
       expect(@market.sorted_item_list).to eq(['Banana Nice Cream', 'Peach', 'Peach-Raspberry Nice Cream', 'Tomato'])
     end
   end
+
+  describe '#total_inventory' do
+    it 'can return a list of all items sold with how many are in stock and which vendors sell them' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
+
+      expect(@market.total_inventory).to eq(
+      {
+        @item1 => {quantity: 100, vendors: [@vendor1, @vendor3]},
+        @item2 => {quantity: 7, vendors: [@vendor1]},
+        @item3 => {quantity: 25, vendors: [@vendor3]},
+        @item4 => {quantity: 50, vendors: [@vendor2]}
+      }
+    )
+    end
+  end
 end
