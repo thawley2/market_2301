@@ -35,10 +35,22 @@ RSpec.describe Market do
   end
 
   describe '#add_vendor' do
-    @market.add_vendor(@vendor1)
-    @market.add_vendor(@vendor2)
-    @market.add_vendor(@vendor3)
+    it 'can add a vendor to the vendors list' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
+      
+      expect(@market.vendors).to eq([@vendor1, @vendor2, @vendor3])
+    end
+  end
 
-    expect(@market.vendors).to eq([@vendor1, @vendor2, @vendor3])
+  describe '#vendor_names' do
+    it 'can return an array of the vendor names' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
+
+      expect(@market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
+    end
   end
 end
