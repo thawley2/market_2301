@@ -50,4 +50,10 @@ class Market
       vendor.check_stock(item)
     end
   end
+
+  def overstocked_items
+    all_items.select do |item|
+      vendors_that_sell(item).length >= 2 && total_quantity(item) >= 50
+    end
+  end
 end
