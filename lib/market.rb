@@ -29,7 +29,7 @@ class Market
   end
 
   def total_inventory
-    inventory = Hash.new(0)
+    inventory = {}
     all_items.each do |item|
       inventory[item] = {
         quantity: total_quantity(item), 
