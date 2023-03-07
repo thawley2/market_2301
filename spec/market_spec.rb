@@ -33,6 +33,10 @@ RSpec.describe Market do
     it 'starts with an empty array of vendors' do
       expect(@market.vendors).to eq([])
     end
+
+    it 'has a creation date' do
+      expect(@market.date).to be_a(Date)
+    end
   end
 
   describe '#add_vendor' do
@@ -109,7 +113,7 @@ RSpec.describe Market do
       @market.add_vendor(@vendor1)
       @market.add_vendor(@vendor2)
       @market.add_vendor(@vendor3)
-      
+
       expect(@market.overstocked_items).to eq([@item1])
     end
   end
