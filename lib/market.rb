@@ -1,9 +1,12 @@
+require 'date'
+
 class Market
-  attr_reader :name, :vendors
+  attr_reader :name, :vendors, :date
 
   def initialize(name)
     @name = name
     @vendors = []
+    @date = Date.today
   end
 
   def add_vendor(vendor)
