@@ -78,16 +78,26 @@ RSpec.describe Market do
   end
 
   describe '#total_inventory' do
-    it 'can return a list of all items sold with how many are in stock and which vendors sell them' do
+    before(:each) do
       @market.add_vendor(@vendor1)
       @market.add_vendor(@vendor2)
       @market.add_vendor(@vendor3)
+    end
 
+    it 'can create a uniq array of all item object' do
+      expect(@market.all_items).to eq([@item1, @item2, @item4, @item3])
+    end
+
+    it 'can return a total quantity of an item from all vendors' do
+      expect(@market.total_quantity(@item1)).to eq(100)
+    end
+
+    it 'can return a list of all items sold with how many are in stock and which vendors sell them' do
       expect(@market.total_inventory).to eq(
       {
         @item1 => {quantity: 100, vendors: [@vendor1, @vendor3]},
         @item2 => {quantity: 7, vendors: [@vendor1]},
-        @item3 => {quantity: 25, vendors: [@vendor3]},
+        @item3 => {quantity: 25, vendors: [@vendor2]},
         @item4 => {quantity: 50, vendors: [@vendor2]}
       }
     )
