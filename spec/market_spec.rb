@@ -103,4 +103,10 @@ RSpec.describe Market do
     )
     end
   end
+
+  describe '#overstocked_items' do
+    it 'can return a list of item objects that are overstocked' do
+      expect(@market.overstocked_items).to eq([@item1])
+    end
+  end
 end
