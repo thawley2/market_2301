@@ -117,4 +117,15 @@ RSpec.describe Market do
       expect(@market.overstocked_items).to eq([@item1])
     end
   end
+
+  describe '#sell' do
+    it 'can sell inventory' do
+      @market.add_vendor(@vendor1)
+      @market.add_vendor(@vendor2)
+      @market.add_vendor(@vendor3)
+
+      expect(@market.sell(@item1, 30)).to be true
+      expect(@vendor1.check_stock(@item1)).to eq(5)
+    end
+  end
 end
