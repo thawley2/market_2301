@@ -12,6 +12,7 @@ RSpec.describe Market do
     @item2 = Item.new({name: 'Tomato', price: "$0.50"})
     @item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
     @item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
+    @item5 = Item.new({name: "Tacos", price: "$0.99"})
 
     @vendor1.stock(@item1, 35) 
     @vendor1.stock(@item2, 7)
@@ -62,6 +63,7 @@ RSpec.describe Market do
 
       expect(@market.vendors_that_sell(@item1)).to eq([@vendor1, @vendor3])
       expect(@market.vendors_that_sell(@item4)).to eq([@vendor2])
+      expect(@market.vendors_that_sell(@item5)).to eq([])
     end
   end
 end
